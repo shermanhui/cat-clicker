@@ -31,3 +31,5 @@ License
 -------
 
 The project is licensed under the MIT license.
+
+Usage of Nyan cat gif is purely for entertainment purposes and will be taken down upon request.
