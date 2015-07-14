@@ -1,1 +1,2 @@
-*Cat-Clicker Project
+# Cat-Clicker Project
+--------------------
