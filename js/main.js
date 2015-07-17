@@ -19,6 +19,14 @@ var cats = [$nameOne, $nameTwo, $nameThree];
 var numCats = cats.length;
 var names = ['Ned', 'Jaime', 'Jon', 'Arya', 'Sansa', 'Tyrion'];
 
+var catRows = $('#cat-rows');
+var catDiv = '<div class="col-md-4"></div>';
+var catTitle = '<h2 id="name->Nyan!</h2>';
+var catImg = '<img id="nyan-cat-" class="nyan-cats" src="img/Nyan-ani.gif/>';
+var catCounter = '<p id="counter-"></div>';
+
+catRows.append(catDiv);
+
 //console.log(clickCountOne, clickCountTwo, clickCountThree);
 
 // this function randomly names the three cats using the array of GoT character names provided
@@ -44,24 +52,33 @@ var clickTracker = function() {
 	// 		});
 	// 	})();
 	// };
-	var clickedItemId = null;
+
+	//experimentation on parseInt..
 	$nyans.click(function(){
-		// Practicing usage of "this" to grab the last object clicked, in this case the individual Nyan cat id
-		// so we can identify and increment the appropriate clicker
-		// this article helped with clarifying "this" http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/
-		clickedItemId = $(this).attr('id');
-		//console.log(clickedItemId);
-		//console.log($nyanOne);
-		if (clickedItemId == "nyan-cat-1") {
-			clickCountOne ++;
-			$counter.text('Current Click Count = '+ clickCountOne);
-		} else if (clickedItemId == "nyan-cat-2") {
-			clickCountTwo ++;
-			$counter2.text('Current Click Count = '+ clickCountTwo);
-		} else {
-			clickCountThree ++;
-			$counter3.text('Current Click Count = ' + clickCountThree);
-		}
+		var count = parseInt($(this).data('click')) || 0;
+		count++;
+		$(this).data('click', count);
+		$counter.text('Current Click Count = ' + count);
+		$counter2.text('Current Click Count = ' + count);
+		$counter3.text('Current Click Count = ' + count);
+	// $nyans.click(function(){
+	// 	var clickedItemId = null;
+	// 	// Practicing usage of "this" to grab the last object clicked, in this case the individual Nyan cat id
+	// 	// so we can identify and increment the appropriate clicker
+	// 	// this article helped with clarifying "this" http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/
+	// 	clickedItemId = $(this).attr('id');
+	// 	//console.log(clickedItemId);
+	// 	//console.log($nyanOne);
+	// 	if (clickedItemId == "nyan-cat-1") {
+	// 		clickCountOne ++;
+	// 		$counter.text('Current Click Count = '+ clickCountOne);
+	// 	} else if (clickedItemId == "nyan-cat-2") {
+	// 		clickCountTwo ++;
+	// 		$counter2.text('Current Click Count = '+ clickCountTwo);
+	// 	} else {
+	// 		clickCountThree ++;
+	// 		$counter3.text('Current Click Count = ' + clickCountThree);
+	// 	}
 	});
 };
 
