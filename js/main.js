@@ -6,26 +6,37 @@ var $nyanThree = $('#nyan-cat-3');// currently unused variables
 var $nameOne = $('#name-one');
 var $nameTwo = $('#name-two');
 var $nameThree = $('#name-three');
+var $nameFour = $('#name-four');
+var $nameFive = $('#name-five');
 
 var $counter = $('#counter-one');
 var $counter2 = $('#counter-two');
 var $counter3 = $('#counter-three');
+var $counter4 = $('#counter-four');
+var $counter5 = $('#counter-five');
 
 var clickCountOne = 0;
 var clickCountTwo = 0;
 var clickCountThree = 0;
+var clickCountFour = 0;
+var clickCountFive = 0;
 
-var cats = [$nameOne, $nameTwo, $nameThree];
+var cats = [$nameOne, $nameTwo, $nameThree, $nameFour, $nameFive];
 var numCats = cats.length;
-var names = ['Ned', 'Jaime', 'Jon', 'Arya', 'Sansa', 'Tyrion'];
+var names = ['Ned', 'Jaime', 'Jon', 'Arya', 'Sansa', 'Tyrion', 'Hodor', 'Petyr', 'Khal', 'Khaleesi', 'Ygritte', 'Catelyn', 'Podrick', 'Brienne'];
 
 var catRows = $('#cat-rows');
-var catDiv = '<div class="col-md-4"></div>';
-var catTitle = '<h2 id="name->Nyan!</h2>';
-var catImg = '<img id="nyan-cat-" class="nyan-cats" src="img/Nyan-ani.gif/>';
-var catCounter = '<p id="counter-"></div>';
-
+var catDiv = '<div id="cat-div" class="col-md-2"></div>';
+var catDivId = $('#cat-div');
+var catTitle = '<h2 id="name-two">Nyan!</h2>';
+var catImg = '<img id="nyan-cat-2" class="nyan-cats" src="img/Nyan-ani.gif"/>';
+var catCounter = '<p id="counter-two"></p>';
+var formattedCat = catTitle;
+console.log(formattedCat);
 catRows.append(catDiv);
+catDivId.append(formattedCat);
+
+
 
 //console.log(clickCountOne, clickCountTwo, clickCountThree);
 
@@ -54,31 +65,37 @@ var clickTracker = function() {
 	// };
 
 	//experimentation on parseInt..
-	$nyans.click(function(){
-		var count = parseInt($(this).data('click')) || 0;
-		count++;
-		$(this).data('click', count);
-		$counter.text('Current Click Count = ' + count);
-		$counter2.text('Current Click Count = ' + count);
-		$counter3.text('Current Click Count = ' + count);
 	// $nyans.click(function(){
-	// 	var clickedItemId = null;
-	// 	// Practicing usage of "this" to grab the last object clicked, in this case the individual Nyan cat id
-	// 	// so we can identify and increment the appropriate clicker
-	// 	// this article helped with clarifying "this" http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/
-	// 	clickedItemId = $(this).attr('id');
-	// 	//console.log(clickedItemId);
-	// 	//console.log($nyanOne);
-	// 	if (clickedItemId == "nyan-cat-1") {
-	// 		clickCountOne ++;
-	// 		$counter.text('Current Click Count = '+ clickCountOne);
-	// 	} else if (clickedItemId == "nyan-cat-2") {
-	// 		clickCountTwo ++;
-	// 		$counter2.text('Current Click Count = '+ clickCountTwo);
-	// 	} else {
-	// 		clickCountThree ++;
-	// 		$counter3.text('Current Click Count = ' + clickCountThree);
-	// 	}
+	// 	var count = parseInt($(this).data('click')) || 0;
+	// 	count++;
+	// 	$(this).data('click', count);
+	// 	$counter.text('Current Click Count = ' + count);
+	// 	$counter2.text('Current Click Count = ' + count);
+	// 	$counter3.text('Current Click Count = ' + count);
+	$nyans.click(function(){
+		var clickedItemId = null;
+		// Practicing usage of "this" to grab the last object clicked, in this case the individual Nyan cat id
+		// so we can identify and increment the appropriate clicker
+		// this article helped with clarifying "this" http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/
+		clickedItemId = $(this).attr('id');
+		//console.log(clickedItemId);
+		//console.log($nyanOne);
+		if (clickedItemId == "nyan-cat-1") {
+			clickCountOne ++;
+			$counter.text('Current Click Count = '+ clickCountOne);
+		} else if (clickedItemId == "nyan-cat-2") {
+			clickCountTwo ++;
+			$counter2.text('Current Click Count = '+ clickCountTwo);
+		} else if (clickedItemId == "nyan-cat-3"){
+			clickCountThree ++;
+			$counter3.text('Current Click Count = ' + clickCountThree);
+		} else if (clickedItemId == "nyan-cat-4"){
+			clickCountFour ++;
+			$counter4.text('Current Click Count = ' + clickCountFour);
+		} else if (clickedItemId == "nyan-cat-5"){
+			clickCountFive ++;
+			$counter5.text('Current Click Count = ' + clickCountFive);
+		}
 	});
 };
 
