@@ -32,9 +32,9 @@ var catTitle = '<h2 id="name-two">Nyan!</h2>';
 var catImg = '<img id="nyan-cat-2" class="nyan-cats" src="img/Nyan-ani.gif"/>';
 var catCounter = '<p id="counter-two"></p>';
 var formattedCat = catTitle;
-console.log(formattedCat);
-catRows.append(catDiv);
-catDivId.append(formattedCat);
+// console.log(formattedCat);
+// catRows.append(catDiv);
+// catDivId.append(formattedCat);
 
 
 
