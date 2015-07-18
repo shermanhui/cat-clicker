@@ -24,6 +24,7 @@ var clickCountFive = 0;
 var cats = [$nameOne, $nameTwo, $nameThree, $nameFour, $nameFive];
 var numCats = cats.length;
 var names = ['Ned', 'Jaime', 'Jon', 'Arya', 'Sansa', 'Tyrion', 'Hodor', 'Petyr', 'Khal', 'Khaleesi', 'Ygritte', 'Catelyn', 'Podrick', 'Brienne'];
+var nameLength = names.length;
 
 var catRows = $('#cat-rows');
 var catDiv = '<div id="cat-div" class="col-md-2"></div>';
@@ -44,7 +45,7 @@ var formattedCat = catTitle;
 // iterates through a the number of cats and inputs the name!
 var nameCats = function(){
 	for (var i = 0; i < numCats; i++) {
-		var catName = names[Math.floor(Math.random() * 6)];
+		var catName = names[Math.floor(Math.random() * nameLength)];
 		var cat = cats[i];
 		cat.text(catName + ' Nyan');
 	}
