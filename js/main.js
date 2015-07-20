@@ -100,5 +100,16 @@ var clickTracker = function() {
 	});
 };
 
+var hideMe = function(){
+	var item = document.getElementById(divID)
+	if item {
+		if (item.className == 'hidden'){
+			item.className = 'unhidden';
+		} else {
+			item.className = 'hidden'
+		}
+	}
+};
+
 nameCats();
 clickTracker();
