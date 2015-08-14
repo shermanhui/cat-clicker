@@ -65,10 +65,23 @@
       <!-- Example row of columns -->
       <div id="cat-rows" class="row">
         <div class="col-md-12 text-center" data-bind='with: currentCat'>
-          <h2 id='name' data-bind='text: name'></h2>
-          <img id="nyan-cat" class="nyan-cats center-block" src="" data-bind='attr: {src: imgSrc}'/>
-          <p id="counter"> Current Click Count = <span data-bind='text: clickCount'></span></p>
-          <button data-bind='click: incrementCounter'>Click to level <span data-bind='text: name'></span></button>
+          <h2 id='cat-name' data-bind='text: name'></h2>
+          <h3>Level: <span data-bind='text: level'></span></h3>
+          <img id="cat-img" class="nyan-cats center-block" src="" data-bind='attr: {src: imgSrc}'/>
+          <p id="counter-text"> Current Click Count = <span data-bind='text: clickCount'></span></p>
+          <button class='btn btn-default' data-bind='click: $parent.incrementCounter'>Click to level <span data-bind='text: name'></span></button>
+          <div class='btn-group' data-bind='with: $parent'>
+            <button class='btn btn-default dropdown-toggle' aria-haspopup='true' data-toggle='dropdown'>List of Cats</button>
+              <ul class='dropdown-menu' data-bind='foreach: catList'>
+                <li><a href='#' data-bind='click: $parent.setCat'>Select <span data-bind='text: name'></span></a></li>
+              </ul>
+          </div>
+          <div class='btn-group' data-bind='with: $parent'>
+            <button class='btn btn-default dropdown-toggle' aria-haspopup='true' data-toggle='dropdown'>Cat Nicknames</button>
+              <ul class='dropdown-menu' data-bind='foreach: $parent.nickname'>
+                <li><a href='#' data-bind='click: null'><span data-bind='text: name'></span></a></li>
+              </ul>
+          </div>
         </div>
 <!--         <div class="col-md-4">
           <h2 id='name-two'>Nyan!</h2>

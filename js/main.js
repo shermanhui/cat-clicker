@@ -1,29 +1,34 @@
 var catData = [
 	{
 		clickCount: 0,
-		name: 'Something',
+		name: 'Testy',
 		imgSrc: 'img/Nyan-ani.gif',
-		imgAttr: 'Something'
+		imgAttr: 'Something',
+		nickname: [{name: 'TESTER'}, {name: 'TT'}]
 	},{
 		clickCount: 0,
-		name: 'Something1',
+		name: 'Tim',
 		imgSrc: 'img/Nyan-ani.gif',
-		imgAttr: 'Something'
+		imgAttr: 'Something',
+		nickname: [{name: 'TIMMY'}, {name: 'TIMMAY'}]
 	},{
 		clickCount: 0,
-		name: 'Something2',
+		name: 'Timothy',
 		imgSrc: 'img/Nyan-ani.gif',
-		imgAttr: 'Something'
+		imgAttr: 'Something',
+		nickname: [{name: 'TI'}, {name: 'TT'}]
 	},{
 		clickCount: 0,
-		name: 'Something3',
+		name: 'Timolino',
 		imgSrc: 'img/Nyan-ani.gif',
-		imgAttr: 'Something'
+		imgAttr: 'Something',
+		nickname: [{name: 'TI'}, {name: 'TT'}]
 	},{
 		clickCount: 0,
-		name: 'Something4',
+		name: 'Timmonen',
 		imgSrc: 'img/Nyan-ani.gif',
-		imgAttr: 'Something'
+		imgAttr: 'Something',
+		nickname: [{name: 'TI'}, {name: 'TT'}]
 	}
 ];
 
@@ -32,7 +37,23 @@ var Cat = function(data){
 	self.clickCount = ko.observable(data.clickCount),
 	self.name = ko.observable(data.name),
 	self.imgSrc = ko.observable(data.imgSrc),
-	self.imgAttr = ko.observable(data.imgAttr)
+	self.imgAttr = ko.observable(data.imgAttr),
+	self.nickname = ko.observable(data.nickname),
+
+	self.level = ko.computed(function(){
+		if (self.clickCount() <= 10){
+			return "infant";
+		} else if (self.clickCount() <= 30){
+			return "child"
+		} else if (self.clickCount() <= 50){
+			return "teen"
+		} else if (self.clickCount() <= 100){
+			return "adult"
+		} else {
+			return "grandmaster"
+		}
+
+	});
 };
 
 var myViewModel = function(){
@@ -50,10 +71,14 @@ var myViewModel = function(){
 		self.currentCat().clickCount(self.currentCat().clickCount() + 1);
 	};
 
+	this.setCat = function(clickedCat){
+		self.currentCat(clickedCat)
+	}
+
 
 };
 
-ko.applyBindings(myViewModel);
+ko.applyBindings(new myViewModel());
 
 // var $nyans = $('.nyan-cats');
 // var $nyanOne = $('#nyan-cat-1');// currently unused variables
