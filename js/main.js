@@ -1,41 +1,53 @@
-// var catData = [
-// 	{
-// 		clickCount = 0,
-// 		name = 'Something',
-// 		imgSrc = 'img/Nyan-ani.gif',
-// 		imgAttr = 'Something'
-// 	},{
-// 		clickCount = 0,
-// 		name = 'Something1',
-// 		imgSrc = 'img/Nyan-ani.gif',
-// 		imgAttr = 'Something'
-// 	},{
-// 		clickCount = 0,
-// 		name = 'Something2',
-// 		imgSrc = 'img/Nyan-ani.gif',
-// 		imgAttr = 'Something'
-// 	},{
-// 		clickCount = 0,
-// 		name = 'Something3',
-// 		imgSrc = 'img/Nyan-ani.gif',
-// 		imgAttr = 'Something'
-// 	},{
-// 		clickCount = 0,
-// 		name = 'Something4',
-// 		imgSrc = 'img/Nyan-ani.gif',
-// 		imgAttr = 'Something'
-// 	}
-// ];
+var catData = [
+	{
+		clickCount: 0,
+		name: 'Something',
+		imgSrc: 'img/Nyan-ani.gif',
+		imgAttr: 'Something'
+	},{
+		clickCount: 0,
+		name: 'Something1',
+		imgSrc: 'img/Nyan-ani.gif',
+		imgAttr: 'Something'
+	},{
+		clickCount: 0,
+		name: 'Something2',
+		imgSrc: 'img/Nyan-ani.gif',
+		imgAttr: 'Something'
+	},{
+		clickCount: 0,
+		name: 'Something3',
+		imgSrc: 'img/Nyan-ani.gif',
+		imgAttr: 'Something'
+	},{
+		clickCount: 0,
+		name: 'Something4',
+		imgSrc: 'img/Nyan-ani.gif',
+		imgAttr: 'Something'
+	}
+];
+
+var Cat = function(data){
+	var self = this;
+	self.clickCount = ko.observable(data.clickCount),
+	self.name = ko.observable(data.name),
+	self.imgSrc = ko.observable(data.imgSrc),
+	self.imgAttr = ko.observable(data.imgAttr)
+};
 
 var myViewModel = function(){
 	var self = this;
-	this.clickCount = ko.observable(0),
-	this.name = 'Something',
-	this.imgSrc = 'img/Nyan-ani.gif',
-	this.imgAttr = 'Something'
+
+	this.catList = ko.observableArray([]);
+
+	catData.forEach(function(catItem){
+		self.catList.push(new Cat(catItem));
+	});
+
+	this.currentCat = ko.observable(this.catList()[0]);
 
 	this.incrementCounter = function(){
-		this.clickCount(this.clickCount() + 1);
+		self.currentCat().clickCount(self.currentCat().clickCount() + 1);
 	};
 
 

@@ -64,7 +64,7 @@
     <div class="container">
       <!-- Example row of columns -->
       <div id="cat-rows" class="row">
-        <div class="col-md-12 text-center">
+        <div class="col-md-12 text-center" data-bind='with: currentCat'>
           <h2 id='name' data-bind='text: name'></h2>
           <img id="nyan-cat" class="nyan-cats center-block" src="" data-bind='attr: {src: imgSrc}'/>
           <p id="counter"> Current Click Count = <span data-bind='text: clickCount'></span></p>
