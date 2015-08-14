@@ -1,3 +1,42 @@
+// var catData = [
+// 	{
+// 		clickCount = 0,
+// 		name = 'Something',
+// 		imgSrc = 'img/Nyan-ani.gif',
+// 		imgAttr = 'Something'
+// 	},{
+// 		clickCount = 0,
+// 		name = 'Something1',
+// 		imgSrc = 'img/Nyan-ani.gif',
+// 		imgAttr = 'Something'
+// 	},{
+// 		clickCount = 0,
+// 		name = 'Something2',
+// 		imgSrc = 'img/Nyan-ani.gif',
+// 		imgAttr = 'Something'
+// 	},{
+// 		clickCount = 0,
+// 		name = 'Something3',
+// 		imgSrc = 'img/Nyan-ani.gif',
+// 		imgAttr = 'Something'
+// 	},{
+// 		clickCount = 0,
+// 		name = 'Something4',
+// 		imgSrc = 'img/Nyan-ani.gif',
+// 		imgAttr = 'Something'
+// 	}
+// ];
+
+var myViewModel = function(){
+	var self = this;
+	self.clickCount = 0,
+	self.name = 'Something',
+	self.imgSrc = 'img/Nyan-ani.gif',
+	self.imgAttr = 'Something'
+};
+
+ko.applyBindings(myViewModel);
+
 // var $nyans = $('.nyan-cats');
 // var $nyanOne = $('#nyan-cat-1');// currently unused variables
 // var $nyanTwo = $('#nyan-cat-2');// currently unused variables
