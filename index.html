@@ -79,7 +79,7 @@
           <div class='btn-group' data-bind='with: $parent'>
             <button class='btn btn-default dropdown-toggle' aria-haspopup='true' data-toggle='dropdown'>Cat Nicknames</button>
               <ul class='dropdown-menu' data-bind='foreach: $parent.nickname'>
-                <li><a href='#' data-bind='click: null'><span data-bind='text: name'></span></a></li>
+                <li><a href='#' data-bind='click: $parent.setName'>Select <span data-bind='text: name'></span></a></li>
               </ul>
           </div>
         </div>

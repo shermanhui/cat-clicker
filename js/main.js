@@ -73,6 +73,10 @@ var myViewModel = function(){
 
 	this.setCat = function(clickedCat){
 		self.currentCat(clickedCat)
+	};
+
+	this.setName = function(clickedName){
+		self.currentCat().name(clickedName.name)
 	}
 
 
