@@ -29,10 +29,16 @@
 
 var myViewModel = function(){
 	var self = this;
-	self.clickCount = 0,
-	self.name = 'Something',
-	self.imgSrc = 'img/Nyan-ani.gif',
-	self.imgAttr = 'Something'
+	this.clickCount = ko.observable(0),
+	this.name = 'Something',
+	this.imgSrc = 'img/Nyan-ani.gif',
+	this.imgAttr = 'Something'
+
+	this.incrementCounter = function(){
+		this.clickCount(this.clickCount() + 1);
+	};
+
+
 };
 
 ko.applyBindings(myViewModel);

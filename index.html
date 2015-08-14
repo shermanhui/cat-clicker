@@ -65,10 +65,10 @@
       <!-- Example row of columns -->
       <div id="cat-rows" class="row">
         <div class="col-md-12 text-center">
-          <h2 id='name-one' data-bind='text: name'></h2>
-          <img id="nyan-cat-1" class="nyan-cats center-block" src="" data-bind='attr: {src: imgSrc}'/>
-          <p id="counter-one"> Current Click Count = <span data-bind='text: clickCount'></span></p>
-          <button data-bind='click: null'>Click to level <span data-bind='text: name'></span></button>
+          <h2 id='name' data-bind='text: name'></h2>
+          <img id="nyan-cat" class="nyan-cats center-block" src="" data-bind='attr: {src: imgSrc}'/>
+          <p id="counter"> Current Click Count = <span data-bind='text: clickCount'></span></p>
+          <button data-bind='click: incrementCounter'>Click to level <span data-bind='text: name'></span></button>
         </div>
 <!--         <div class="col-md-4">
           <h2 id='name-two'>Nyan!</h2>
